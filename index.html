@@ -24,6 +24,7 @@
       color: var(--text);
       padding: 24px;
       line-height: 1.5;
+      min-width: 320px;
     }
 
     .btn {
@@ -46,6 +47,7 @@
       display: grid;
       grid-template-columns: 320px 1fr;
       gap: 24px;
+      align-items: start;
     }
 
     /* Sidebar / Course Panel */
@@ -71,6 +73,7 @@
       border-radius: var(--radius);
       margin-bottom: 10px;
       background: #fafafa;
+      gap: 10px;
     }
 
     .sidebar-section {
@@ -162,6 +165,15 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      min-width: 0;
+    }
+
+    .course-info input,
+    .other-course-item input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--primary);
+      flex-shrink: 0;
     }
 
     .color-pill {
@@ -171,8 +183,12 @@
       flex-shrink: 0;
     }
 
-    .course-details strong { display: inline-flex; align-items: center; gap: 6px; font-size: 0.95rem; }
-    .course-details span { font-size: 0.75rem; color: var(--text-muted); display: block; }
+    .course-details {
+      min-width: 0;
+    }
+
+    .course-details strong { display: inline-flex; align-items: center; gap: 6px; font-size: 0.95rem; flex-wrap: wrap; }
+    .course-details span { font-size: 0.75rem; color: var(--text-muted); display: block; overflow-wrap: anywhere; }
 
     /* Core Pill Tag */
     .core-pill {
@@ -189,6 +205,7 @@
     .course-actions {
       display: flex;
       gap: 6px;
+      flex-shrink: 0;
     }
 
     .btn-icon {
@@ -209,6 +226,10 @@
       border-radius: var(--radius);
       border: 1px solid var(--border);
       overflow-x: auto;
+    }
+
+    .mobile-schedule {
+      display: none;
     }
 
     table {
@@ -362,6 +383,237 @@
       gap: 10px;
       margin-top: 20px;
     }
+
+    @media (max-width: 900px) {
+      body {
+        padding: 14px;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .sidebar,
+      .timetable-container {
+        border-radius: 8px;
+      }
+
+      .sidebar {
+        padding: 14px;
+      }
+
+      .sidebar h2 {
+        font-size: 1rem;
+        margin-bottom: 10px;
+      }
+
+      .course-item {
+        padding: 11px 10px;
+        align-items: flex-start;
+      }
+
+      .course-actions {
+        margin-top: -2px;
+      }
+
+      .btn-icon {
+        min-width: 32px;
+        min-height: 32px;
+        font-size: 1rem;
+      }
+
+      .category-toggle {
+        min-height: 44px;
+      }
+
+      .other-course-list {
+        max-height: 360px;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .other-course-item {
+        padding: 11px 4px;
+      }
+
+      .other-course-details strong {
+        font-size: 0.82rem;
+        line-height: 1.25;
+      }
+
+      .other-course-details span {
+        font-size: 0.72rem;
+      }
+
+      .timetable-container {
+        padding: 0;
+        border: none;
+        background: transparent;
+        overflow: visible;
+      }
+
+      table {
+        display: none;
+      }
+
+      .mobile-schedule {
+        display: grid;
+        gap: 12px;
+      }
+
+      .mobile-day {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .mobile-day-header {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background: #f1f5f9;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 12px;
+        font-weight: 800;
+      }
+
+      .mobile-day-count {
+        color: var(--text-muted);
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+
+      .mobile-slot {
+        display: grid;
+        grid-template-columns: 92px 1fr;
+        gap: 10px;
+        padding: 10px 12px;
+        border-bottom: 1px solid #e5e7eb;
+        min-height: 62px;
+      }
+
+      .mobile-slot:last-child {
+        border-bottom: none;
+      }
+
+      .mobile-time {
+        color: var(--text-muted);
+        font-size: 0.72rem;
+        font-weight: 800;
+        line-height: 1.25;
+        padding-top: 3px;
+      }
+
+      .mobile-slot-content {
+        display: grid;
+        gap: 6px;
+        min-width: 0;
+      }
+
+      .mobile-empty {
+        color: #94a3b8;
+        font-size: 0.8rem;
+        align-self: center;
+      }
+
+      .mobile-lunch {
+        background: #f8fafc;
+        color: #64748b;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .mobile-lunch .mobile-slot-content {
+        align-self: center;
+      }
+
+      .mobile-slot.has-conflict {
+        background: #fef2f2;
+        border-left: 3px solid #ef4444;
+      }
+
+      .badge {
+        padding: 7px 8px;
+      }
+
+      .badge .header-line {
+        gap: 8px;
+      }
+
+      .badge .title {
+        font-size: 0.82rem;
+        overflow-wrap: anywhere;
+      }
+
+      .badge .sub {
+        font-size: 0.7rem;
+        overflow-wrap: anywhere;
+      }
+
+      .modal-overlay {
+        align-items: flex-end;
+      }
+
+      .modal {
+        width: 100%;
+        max-width: none;
+        max-height: 92vh;
+        overflow: auto;
+        border-radius: 12px 12px 0 0;
+        padding: 18px;
+      }
+
+      .slot-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr auto;
+      }
+    }
+
+    @media (max-width: 520px) {
+      body {
+        padding: 10px;
+      }
+
+      .sidebar {
+        padding: 12px;
+      }
+
+      .course-item {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 8px;
+      }
+
+      .course-info {
+        align-items: flex-start;
+      }
+
+      .color-pill {
+        width: 12px;
+        height: 12px;
+        margin-top: 4px;
+      }
+
+      .course-details strong {
+        font-size: 0.88rem;
+      }
+
+      .mobile-slot {
+        grid-template-columns: 78px 1fr;
+        padding: 10px;
+      }
+
+      .mobile-time {
+        font-size: 0.68rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -390,6 +642,7 @@
           <!-- Rows added dynamically -->
         </tbody>
       </table>
+      <div class="mobile-schedule" id="mobile-schedule"></div>
     </main>
   </div>
 
@@ -828,7 +1081,34 @@ TGS,Topics in Group Schemes,V Balaji,Maths Electives 2,"Tue 11:50-13:05, Thu 11:
       });
     }
 
-    function renderTimetable() {
+    function createCourseBadge(course) {
+      const badge = document.createElement("div");
+      if (course.enabled) {
+        badge.className = "badge";
+        badge.style.backgroundColor = course.bgColor;
+        badge.style.color = course.textColor;
+        badge.style.borderLeft = `4px solid ${course.color}`;
+      } else {
+        badge.className = "badge faint";
+      }
+
+      badge.innerHTML = `
+        <div class="header-line">
+          <span class="title">${escapeHtml(course.code)}</span>
+          ${course.isCore && course.enabled ? '<span class="core-pill">CORE</span>' : ''}
+        </div>
+        <div class="sub">${escapeHtml(course.instructor || '')}</div>
+      `;
+      return badge;
+    }
+
+    function getCoursesForSlot(day, slotIndex) {
+      return courses.filter(c =>
+        c.slots && c.slots.some(s => s.day === day && s.slotIndex === slotIndex)
+      );
+    }
+
+    function renderDesktopTimetable() {
       const tbody = document.getElementById("table-body");
       tbody.innerHTML = "";
 
@@ -845,34 +1125,14 @@ TGS,Topics in Group Schemes,V Balaji,Maths Electives 2,"Tue 11:50-13:05, Thu 11:
           const cellContent = document.createElement("div");
           cellContent.className = "cell-content";
 
-          const matchingCourses = courses.filter(c => 
-            c.slots && c.slots.some(s => s.day === day && s.slotIndex === slotIndex)
-          );
-
+          const matchingCourses = getCoursesForSlot(day, slotIndex);
           const activeCourses = matchingCourses.filter(c => c.enabled);
           if (activeCourses.length > 1) {
             td.classList.add("has-conflict");
           }
 
           matchingCourses.forEach(course => {
-            const badge = document.createElement("div");
-            if (course.enabled) {
-              badge.className = "badge";
-              badge.style.backgroundColor = course.bgColor;
-              badge.style.color = course.textColor;
-              badge.style.borderLeft = `4px solid ${course.color}`;
-            } else {
-              badge.className = "badge faint";
-            }
-
-            badge.innerHTML = `
-              <div class="header-line">
-                <span class="title">${escapeHtml(course.code)}</span>
-                ${course.isCore && course.enabled ? '<span class="core-pill">CORE</span>' : ''}
-              </div>
-              <div class="sub">${escapeHtml(course.instructor || '')}</div>
-            `;
-            cellContent.appendChild(badge);
+            cellContent.appendChild(createCourseBadge(course));
           });
 
           if (activeCourses.length > 1) {
@@ -896,6 +1156,83 @@ TGS,Topics in Group Schemes,V Balaji,Maths Electives 2,"Tue 11:50-13:05, Thu 11:
 
         tbody.appendChild(tr);
       });
+    }
+
+    function renderMobileTimetable() {
+      const container = document.getElementById("mobile-schedule");
+      container.innerHTML = "";
+
+      DAYS.forEach(day => {
+        const daySection = document.createElement("section");
+        daySection.className = "mobile-day";
+
+        const activeCount = courses.filter(course =>
+          course.enabled && course.slots && course.slots.some(slot => slot.day === day)
+        ).length;
+
+        const header = document.createElement("div");
+        header.className = "mobile-day-header";
+        header.innerHTML = `
+          <span>${escapeHtml(day)}</span>
+          <span class="mobile-day-count">${activeCount} active</span>
+        `;
+        daySection.appendChild(header);
+
+        TIME_SLOTS.forEach((slot, slotIndex) => {
+          const matchingCourses = getCoursesForSlot(day, slotIndex);
+          const activeCourses = matchingCourses.filter(course => course.enabled);
+
+          const slotRow = document.createElement("div");
+          slotRow.className = "mobile-slot";
+          if (activeCourses.length > 1) slotRow.classList.add("has-conflict");
+
+          const time = document.createElement("div");
+          time.className = "mobile-time";
+          time.textContent = slot;
+
+          const content = document.createElement("div");
+          content.className = "mobile-slot-content";
+
+          if (matchingCourses.length) {
+            matchingCourses.forEach(course => {
+              content.appendChild(createCourseBadge(course));
+            });
+          } else {
+            const empty = document.createElement("div");
+            empty.className = "mobile-empty";
+            empty.textContent = "Free";
+            content.appendChild(empty);
+          }
+
+          if (activeCourses.length > 1) {
+            const warning = document.createElement("div");
+            warning.className = "conflict-warning";
+            warning.innerHTML = "<span>&#9888;</span> Conflict";
+            content.appendChild(warning);
+          }
+
+          slotRow.appendChild(time);
+          slotRow.appendChild(content);
+          daySection.appendChild(slotRow);
+
+          if (slotIndex === 2) {
+            const lunchRow = document.createElement("div");
+            lunchRow.className = "mobile-slot mobile-lunch";
+            lunchRow.innerHTML = `
+              <div class="mobile-time">13:05–14:00</div>
+              <div class="mobile-slot-content">Lunch</div>
+            `;
+            daySection.appendChild(lunchRow);
+          }
+        });
+
+        container.appendChild(daySection);
+      });
+    }
+
+    function renderTimetable() {
+      renderDesktopTimetable();
+      renderMobileTimetable();
     }
 
     function toggleCourse(id) {
