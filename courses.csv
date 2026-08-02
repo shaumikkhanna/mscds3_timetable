@@ -1,0 +1,9 @@
+id,code,name,instructor,isCore,color,enabled,slots
+c1,REG,Regression & Classification,Sourish Das,true,#ef4444,true,Tue:2|Thu:2
+c2,AML,Advanced Machine Learning,Pranabendu Misra,true,#6366f1,true,Mon:2|Mon:3
+c3,TSA,Time Series Analysis,M R Srinivasan,false,#3b82f6,false,Tue:2|Thu:2
+c4,NETW,Network Fundamentals,Y Chandramouli,false,#8b5cf6,false,Tue:4|Thu:4
+c5,RFLR,Reinforcement Learning,I Murugeswari,false,#ec4899,false,Mon:1|Wed:1
+c6,MVG,Multiple View Geometry,Kavita Sutar,false,#10b981,false,Tue:1|Fri:1|Fri:2
+c7,TAGT,Topics in Applied Graph Theory,Priyavrat Deshpande,false,#f59e0b,false,Wed:2
+c8,NLP,Natural Language Processing,Ramaseshan Ramachandran,false,#06b6d4,false,Thu:0|Thu:3
