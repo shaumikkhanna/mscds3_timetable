@@ -78,28 +78,28 @@
 				height: fit-content;
 			}
 
-    .sidebar h2 {
-      font-size: 1.1rem;
-      margin-bottom: 12px;
-    }
+			.sidebar h2 {
+				font-size: 1.1rem;
+				margin-bottom: 12px;
+			}
 
-    .sidebar-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
+			.sidebar-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				gap: 10px;
+				margin-bottom: 12px;
+			}
 
-    .sidebar-header h2 {
-      margin-bottom: 0;
-    }
+			.sidebar-header h2 {
+				margin-bottom: 0;
+			}
 
-    .btn-small {
-      padding: 6px 10px;
-      font-size: 0.78rem;
-      white-space: nowrap;
-    }
+			.btn-small {
+				padding: 6px 10px;
+				font-size: 0.78rem;
+				white-space: nowrap;
+			}
 
 			.course-item {
 				display: flex;
@@ -691,12 +691,17 @@
 	<body>
 		<div class="layout">
 			<!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="sidebar-header">
-        <h2>Subjects</h2>
-        <button class="btn btn-secondary btn-small" onclick="resetDefaults()">Reset Courses</button>
-      </div>
-      <div id="course-list"></div>
+			<aside class="sidebar">
+				<div class="sidebar-header">
+					<h2>Subjects</h2>
+					<button
+						class="btn btn-secondary btn-small"
+						onclick="resetDefaults()"
+					>
+						Reset Courses
+					</button>
+				</div>
+				<div id="course-list"></div>
 				<div class="sidebar-section">
 					<h2>Other Courses</h2>
 					<div id="other-course-groups"></div>
@@ -810,7 +815,8 @@ c4,NETW,Network Fundamentals,Y Chandramouli,false,#8b5cf6,false,Tue:4|Thu:4
 c5,RFLR,Reinforcement Learning,I Murugeswari,false,#ec4899,false,Mon:1|Wed:1
 c6,MVG,Multiple View Geometry,Kavita Sutar,false,#10b981,false,Tue:1|Fri:1|Fri:2
 c7,TAGT,Topics in Applied Graph Theory,Priyavrat Deshpande,false,#f59e0b,false,Wed:2
-c8,NLP,Natural Language Processing,Ramaseshan Ramachandran,false,#06b6d4,false,Thu:0|Thu:3`;
+c8,NLP,Natural Language Processing,Ramaseshan Ramachandran,false,#06b6d4,false,Thu:0|Thu:3
+c9,STPR,Stochastic Processes,Gautham Sekhar,false,#f97316,false,Thu:5|Fri:5`;
 
 			const EMBEDDED_OTHER_CSV = `Course Code,Course Name,Instructor,Category / Program,Schedule
 PDE,"Sobolev Spaces & Applications to PDE",Prosenjit Roy,Maths Electives 3,"Thu 09:10-10:25, Fri 14:00-15:15"
@@ -851,7 +857,9 @@ LAB,Physics Lab,K G M Nair,B.S. Math & Physics II,"Fri 14:00-15:15, Fri 15:30-16
 IMF,Intro to Modular Forms (starts 6 Aug),B Ramakrishnan,Maths Electives 2,"Tue 15:30-16:45, Thu 15:30-16:45"
 IEC,Intro to Elliptic Curves,Aditya Karnataki,Maths Electives 2,"Tue 10:30-11:45, Wed 10:30-11:45, Thu 10:30-11:45"
 PAPF,"Intro to p-adic analysis & p-adic L-functions (starts 14 Aug)",Purusottam Rath,Maths Electives 2,"Mon 11:50-13:05, Fri 11:50-13:05"
-TGS,Topics in Group Schemes,V Balaji,Maths Electives 2,"Tue 11:50-13:05, Thu 11:50-13:05"`;
+TGS,Topics in Group Schemes,V Balaji,Maths Electives 2,"Tue 11:50-13:05, Thu 11:50-13:05"
+OMI,OmicSure,Kavita Sutar,Other,"Tue 14:00-15:15, Wed 14:00-15:15, Fri 11:50-13:05"
+`;
 
 			let courses = [];
 			let otherCourses = [];
